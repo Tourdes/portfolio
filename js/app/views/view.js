@@ -40,6 +40,13 @@ View.prototype.init = function() {
 
 };
 
+// Toggle menu
+View.prototype.toggleMenu = function() {
+	this.menuItem.removeClass('active');
+	this.menuId.addClass('active'); 
+
+};
+
 // Template view
 View.prototype.template = function() {
 	
@@ -194,16 +201,6 @@ View.prototype.onAnimateOut = function() {
 	// Dispatch onAnimateOut event
 	this._onAnimateOut.dispatch();
 
-};
-
-// Applique un effect actif sur l'élément du menu de la page courante
-View.prototype.toggleActive = function(e){
-
-	e.preventDefault();
-	console.log('test');
-
-	//$(e.target).parent().find('a').removeClass('active');
-	//$(e.target).addClass('active');
 };
 
 

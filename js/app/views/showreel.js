@@ -1,6 +1,7 @@
 var Showreel = function(){
 
 	this.id = 'showreel';
+	this.menuId = $('[showreel-menu]');
 	this.mainContainer = $('main');
 
 	View.apply(this, arguments);
@@ -13,6 +14,8 @@ Showreel.prototype = Object.create(View.prototype);
 Showreel.prototype.animateIn = function() {
 	
 	View.prototype.animateIn.call(this);
+
+	this.toggleMenu();
 
 	var self = this;
 

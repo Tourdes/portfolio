@@ -65,16 +65,12 @@ App.prototype.onDatasLoaded = function() {
 
 	// Create viewController
 	this.viewController = new ViewController();
-
 	// Create mainLoader
 	this.mainLoader = new MainLoader();
-
 	// Listen mainLoader for onAnimateIn event
 	this.mainLoader._onAnimateIn.add(this.onMainLoaderAnimateIn, this);
-
 	// Start loading common assets
 	this.mainLoader.animateIn();
-
 };
 
 // Bind common events

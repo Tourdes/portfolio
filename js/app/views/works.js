@@ -2,13 +2,12 @@ var Works = function(){
 
 	this.id = 'works';
 
+	this.menuId = $('[works-menu]');
 	//Current Work
 	this.currentWork = 0;
 
 	//Selectors
 	this.mainContainer = $('main');
-	this.menuItems = $( ".links" );
-	this.menuItem = $( ".links:nth-child(1)" );
 
 	
 
@@ -16,19 +15,18 @@ var Works = function(){
 	
 };
 
-/*Works.prototype.bind = function() {
-	
-	View.prototype.bind.call(this);
-
-	this.menuItem.on('click', $.proxy(this.toggleMenu, this));
-};*/
-
 
 Works.prototype = Object.create(View.prototype);
+
+Works.prototype.bind = function(){
+
+};
 
 Works.prototype.animateIn = function() {
 	
 	View.prototype.animateIn.call(this);
+
+	this.toggleMenu();
 
 	var self = this;
 
@@ -39,7 +37,6 @@ Works.prototype.animateIn = function() {
 	});
 
 	this.setBG();
-	this.toggleMenu();
 
 };
 
@@ -59,6 +56,7 @@ Works.prototype.animateOut = function() {
 
 // Switch between works
 Works.prototype.switchWorks = function(nextWork) {
+	console.log('SWITCHWORKS');
 
 	this.nextWork = nextWork;
 	
@@ -109,12 +107,3 @@ Works.prototype.setBG = function() {
     });
 
 };
-
-// Toggle menu
-Works.prototype.toggleMenu = function() {
-
-	this.menuItems.removeClass('active');
-	this.menuItem.addClass('active');
-
-};
-

@@ -11,14 +11,12 @@ var ViewController = function(){
 	this.prevView = null;
 	this.currentView = null;
 	this.nextView = null;
-
 	this.init();
 
 };
 
 // Init views
 ViewController.prototype.init = function() {
-	
 	// Create all views
 	this.views = {
 		'showreel': new Showreel(),
@@ -38,7 +36,7 @@ ViewController.prototype.bind = function() {
 
 // On navigate
 ViewController.prototype.onNavigate = function(e) {
-	
+	console.log(e.view);
 	var view = e.view;
 
 	console.log('## VC Navigate >> ', e);

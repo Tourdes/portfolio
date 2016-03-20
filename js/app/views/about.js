@@ -1,6 +1,7 @@
 var About = function(){
 
 	this.id = 'about';
+	this.menuId = $('[about-menu]');
 	this.mainContainer = $('main');
 
 	View.apply(this, arguments);
@@ -13,6 +14,8 @@ About.prototype = Object.create(View.prototype);
 About.prototype.animateIn = function() {
 	
 	View.prototype.animateIn.call(this);
+
+	this.toggleMenu();
 
 	var self = this;
 
