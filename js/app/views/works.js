@@ -6,10 +6,10 @@ var Works = function(){
 	//Current Work
 	this.currentWork = 0;
 
+	
+
 	//Selectors
 	this.mainContainer = $('main');
-
-	
 
 	View.apply(this, arguments);
 	
@@ -20,6 +20,11 @@ Works.prototype = Object.create(View.prototype);
 
 Works.prototype.bind = function(){
 
+	View.prototype.bind.call(this);
+
+	this.navWorks = $('[project_selector]');
+
+	this.navWorks.on('click', $.proxy(this.switchWorks, this));
 };
 
 Works.prototype.animateIn = function() {
@@ -55,14 +60,14 @@ Works.prototype.animateOut = function() {
 
 
 // Switch between works
-Works.prototype.switchWorks = function(nextWork) {
-	console.log('SWITCHWORKS');
+Works.prototype.switchWorks = function(e) {
 
+	var nextWork = $(e.currentTarget).attr('project_selector');
 	this.nextWork = nextWork;
 	
 	// Select the works to switch between and set the new current work
-	this.workToHide = $( ".project:nth-child(" + this.currentWork + ")" );
-	this.workToShow = $( ".project:nth-child(" + this.nextWork + ")" );
+	this.workToHide = $( "." + this.currentWork );
+	this.workToShow = $( "." + this.nextWork );
 	this.setCurrentWork(nextWork);
 
 	// Display works

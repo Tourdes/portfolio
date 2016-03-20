@@ -44,7 +44,6 @@ View.prototype.init = function() {
 View.prototype.toggleMenu = function() {
 	this.menuItem.removeClass('active');
 	this.menuId.addClass('active'); 
-
 };
 
 // Template view
