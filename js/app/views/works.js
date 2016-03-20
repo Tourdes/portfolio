@@ -4,7 +4,7 @@ var Works = function(){
 
 	this.menuId = $('[works-menu]');
 	//Current Work
-	this.currentWork = 0;
+	this.currentWork = "gamersorigin";
 
 	
 
@@ -40,7 +40,7 @@ Works.prototype.animateIn = function() {
 	this.domElem.fadeIn(function(){
 		self.onAnimateIn();
 	});
-
+	this.initWorks();
 	this.setBG();
 
 };
@@ -57,6 +57,11 @@ Works.prototype.animateOut = function() {
 
 };
 
+Works.prototype.initWorks = function(){
+	this.workToShow = $( "." + this.currentWork );
+	this.workToShow.velocity({ opacity: 1 }, { display: "block" });
+};
+
 
 
 // Switch between works
@@ -68,6 +73,8 @@ Works.prototype.switchWorks = function(e) {
 	// Select the works to switch between and set the new current work
 	this.workToHide = $( "." + this.currentWork );
 	this.workToShow = $( "." + this.nextWork );
+	console.log(this.currentWork);
+	console.log(this.nextWork);
 	this.setCurrentWork(nextWork);
 
 	// Display works
@@ -80,25 +87,27 @@ Works.prototype.switchWorks = function(e) {
 // Set the current work
 Works.prototype.setCurrentWork = function(nextWork) {
 
-	this.nextWork = nextWork;
+	// this.nextWork = nextWork;
 
-	switch(this.nextWork){
-		case 0:
-		this.currentWork = 0;
-		break;
-		case 1:
-		this.currentWork = 1;
-		break;
-		case 2:
-		this.currentWork = 2;
-		break;
-		case 3:
-		this.currentWork = 3;
-		break;
-		case 4:
-		this.currentWork = 4;
-		break;
-	}
+	// switch(this.nextWork){
+	// 	case 0:
+	// 	this.currentWork = 0;
+	// 	break;
+	// 	case 1:
+	// 	this.currentWork = 1;
+	// 	break;
+	// 	case 2:
+	// 	this.currentWork = 2;
+	// 	break;
+	// 	case 3:
+	// 	this.currentWork = 3;
+	// 	break;
+	// 	case 4:
+	// 	this.currentWork = 4;
+	// 	break;
+	// }
+
+	this.currentWork = nextWork;
 
 	console.log(this.currentWork);
 };
