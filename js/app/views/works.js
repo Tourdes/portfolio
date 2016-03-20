@@ -7,6 +7,8 @@ var Works = function(){
 
 	//Selectors
 	this.mainContainer = $('main');
+	this.menuItems = $( ".links" );
+	this.menuItem = $( ".links:nth-child(0)" );
 
 	
 
@@ -97,5 +99,15 @@ Works.prototype.setBG = function() {
       "background-image": "url('../assets/img/bg_gamersorigin.png')",
       "background-position": "0% 0%"
     });
+
+};
+
+// Toggle menu
+Works.prototype.toggleMenu = function() {
+
+	e.preventDefault();
+
+	this.menuItems.removeClass('active');
+	this.menuItem.addClass('active');
 
 };
