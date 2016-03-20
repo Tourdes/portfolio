@@ -7,6 +7,7 @@
 // Body
 html, body {
 	width: 100%;
+	height: 100%;
 
 	-moz-osx-font-smoothing: grayscale;
 	-webkit-font-smoothing: antialiased;
@@ -16,9 +17,17 @@ html, body {
 }
 
 body {
-	color: #000;
-	background: #888888;
-	font-size: 12px;
+	background: #181819;
+}
+
+.no_scroll{
+	overflow: hidden;
+}
+
+#main{
+	width: 100%;
+	height: 100%;
+	background-size: cover;
 }
 
 // Common
@@ -26,8 +35,8 @@ body {
 
 @import "common/loader";
 @import "common/header";
-@import "common/footer";
 
 // Views
-@import "views/home";
-@import "views/experience";
+@import "views/showreel";
+@import "views/about";
+@import "views/works";

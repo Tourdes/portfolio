@@ -1,0 +1,28 @@
+#about{
+	position: relative;
+
+	.about_container{
+		width: 585px;
+		margin: 0 auto;
+		text-align: center;
+
+		.big_logo{
+			width: 75px;
+			padding-top: 90px;
+			margin-bottom: 25px;
+		}
+		
+		.description{
+			font-family: 'proximanova-regular';
+			font-size: 12px;
+			color: #fff;
+			line-height: 18px;
+			margin-bottom: 12px;
+
+			span{
+				font-family: 'proximanova-bold';
+			}
+		}
+
+	}
+}

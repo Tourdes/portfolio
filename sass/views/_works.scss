@@ -1,0 +1,76 @@
+#works{
+	position: relative;
+	width: 100%;
+	height: 100%;
+
+	.active{
+		display: block;
+	}
+
+	.project{
+		position: absolute;
+		width: 100%;
+		height: 100%;
+
+		.project_cover{
+			position: absolute;
+			top: 3%;
+			left: 50%;
+			transform: translateX(-50%);
+			width: 980px;
+			height: 484px;
+			background-image: url('../assets/img/work_go.png');
+			background-size: cover;
+
+		}
+
+
+		.project_title{
+			position: absolute;
+			top: 484px;
+			left: 50%;
+			transform: translateX(-50%);
+
+			.big_title{
+				font-family: 'proximanova-black';
+				font-size: 48px;
+				letter-spacing: 0.02em;
+				text-transform: uppercase;
+				color: #fff;
+			}
+
+			.subtitle{
+				font-family: 'proximanova-regular';
+				font-size: 14px;
+				color: #797879;
+				text-align: center;
+			}
+		}
+	}
+
+	.nav{
+		position: absolute;
+		width: 806px;
+		top: 580px;
+		left: 50%;
+		transform: translateX(-50%);
+			
+		.project_color{
+			display: inline-block;
+			width: 150px;
+			height: 7px;
+			margin-right: 10px;
+
+			span{
+				width: 100%;
+				height: 100%;
+				display: block;
+				background-color: #C60407;
+			}
+		}
+
+		.project_color:last-child{
+			margin-right: 0px;
+		}
+	}
+}

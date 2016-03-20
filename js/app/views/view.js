@@ -24,6 +24,10 @@ var View = function(){
 
 	this.images = {};
 
+	// Menu
+	this.menuItem = $('.links');
+
+
 	// Init view
 	this.init();
 
@@ -148,6 +152,10 @@ View.prototype.bind = function() {
 	// Bind resize event
 	app._onResize.add(this.resize, this);
 
+	// Bind Menu events
+	this.menuItem.on('click', $.proxy(this.toggleActive, this));
+
+
 };
 
 // Once view is animated in
@@ -187,3 +195,16 @@ View.prototype.onAnimateOut = function() {
 	this._onAnimateOut.dispatch();
 
 };
+
+// Applique un effect actif sur l'élément du menu de la page courante
+View.prototype.toggleActive = function(e){
+
+	e.preventDefault();
+	console.log('test');
+
+	//$(e.target).parent().find('a').removeClass('active');
+	//$(e.target).addClass('active');
+};
+
+
+

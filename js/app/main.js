@@ -79,9 +79,11 @@ App.prototype.onDatasLoaded = function() {
 
 // Bind common events
 App.prototype.bind = function() {
+
 	
 	// Bind resize event
 	this.window.on("resize", $.proxy(this.resize, this));
+
 
 };
 
@@ -139,3 +141,5 @@ Object.size = function(obj) {
     }
     return size;
 };
+
+

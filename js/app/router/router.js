@@ -46,21 +46,33 @@ Router.prototype.createRoutes = function() {
 
 		// Dispatch navigate event
 		self._onNavigate.dispatch({
-			view: 'home'
+			view: 'showreel'
 		});
 
-		console.log( '## Navigate view home' );
+		console.log( '## Navigate view home/showreel' );
 
 	});
 
-	// Experience
-	crossroads.addRoute( '/experience' , function(){
+
+	// About
+	crossroads.addRoute( '/about' , function(){
 
 		self._onNavigate.dispatch({
-			view: 'experience'
+			view: 'about'
 		});
 
-		console.log( '## Navigate view experience' );
+		console.log( '## Navigate view about' );
+
+	});
+
+	// About
+	crossroads.addRoute( '/works' , function(){
+
+		self._onNavigate.dispatch({
+			view: 'works'
+		});
+
+		console.log( '## Navigate view works' );
 
 	});
 
