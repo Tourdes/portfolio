@@ -22,7 +22,7 @@ Works.prototype.bind = function(){
 
 	View.prototype.bind.call(this);
 
-	this.navWorks = $('[project_selector]');
+	this.navWorks = $('[data-selector]');
 
 	this.navWorks.on('click', $.proxy(this.switchWorks, this));
 };
@@ -62,7 +62,7 @@ Works.prototype.animateOut = function() {
 // Switch between works
 Works.prototype.switchWorks = function(e) {
 
-	var nextWork = $(e.currentTarget).attr('project_selector');
+	var nextWork = $(e.currentTarget).attr('data-selector');
 	this.nextWork = nextWork;
 	
 	// Select the works to switch between and set the new current work
