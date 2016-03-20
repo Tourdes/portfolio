@@ -8,13 +8,20 @@ var Works = function(){
 	//Selectors
 	this.mainContainer = $('main');
 	this.menuItems = $( ".links" );
-	this.menuItem = $( ".links:nth-child(0)" );
+	this.menuItem = $( ".links:nth-child(1)" );
 
 	
 
 	View.apply(this, arguments);
 	
 };
+
+/*Works.prototype.bind = function() {
+	
+	View.prototype.bind.call(this);
+
+	this.menuItem.on('click', $.proxy(this.toggleMenu, this));
+};*/
 
 
 Works.prototype = Object.create(View.prototype);
@@ -32,6 +39,7 @@ Works.prototype.animateIn = function() {
 	});
 
 	this.setBG();
+	this.toggleMenu();
 
 };
 
@@ -105,9 +113,8 @@ Works.prototype.setBG = function() {
 // Toggle menu
 Works.prototype.toggleMenu = function() {
 
-	e.preventDefault();
-
 	this.menuItems.removeClass('active');
 	this.menuItem.addClass('active');
 
 };
+
