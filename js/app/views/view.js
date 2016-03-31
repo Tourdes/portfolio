@@ -24,8 +24,8 @@ var View = function(){
 
 	this.images = {};
 
-	// Menu
-	this.menuItem = $('.links');
+	// Border menu
+	this.borderMenu = $('.border_menu');
 
 
 	// Init view
@@ -38,12 +38,6 @@ View.prototype.init = function() {
 	
 	this.template();
 
-};
-
-// Toggle menu
-View.prototype.toggleMenu = function() {
-	this.menuItem.removeClass('active');
-	this.menuId.addClass('active'); 
 };
 
 // Template view
@@ -158,9 +152,6 @@ View.prototype.bind = function() {
 	// Bind resize event
 	app._onResize.add(this.resize, this);
 
-	// Bind Menu events
-	this.menuItem.on('click', $.proxy(this.toggleActive, this));
-
 
 };
 
@@ -199,6 +190,17 @@ View.prototype.onAnimateOut = function() {
 
 	// Dispatch onAnimateOut event
 	this._onAnimateOut.dispatch();
+
+};
+
+// Toggle menu
+View.prototype.toggleMenu = function() {
+
+	this.borderMenu.removeClass('left middle right');
+	this.borderMenu.addClass(this.borderMenuPosition);
+
+	this.menuItems.removeClass('active');
+	this.menuItem.addClass('active');
 
 };
 

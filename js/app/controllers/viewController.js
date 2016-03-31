@@ -11,17 +11,25 @@ var ViewController = function(){
 	this.prevView = null;
 	this.currentView = null;
 	this.nextView = null;
+
 	this.init();
 
 };
 
 // Init views
 ViewController.prototype.init = function() {
+	
 	// Create all views
 	this.views = {
 		'showreel': new Showreel(),
 		'about': new About(),
-		'works': new Works()
+		'works': new Works(),
+		'gamersorigin': new Gamersorigin(),
+		'trophy': new Trophy(),
+		'tesla': new Tesla(),
+		'geekart': new Geekart(),
+		'newmeta': new Newmeta()
+
 	};
 
 };
@@ -36,7 +44,7 @@ ViewController.prototype.bind = function() {
 
 // On navigate
 ViewController.prototype.onNavigate = function(e) {
-	console.log(e.view);
+	
 	var view = e.view;
 
 	console.log('## VC Navigate >> ', e);
@@ -83,9 +91,15 @@ ViewController.prototype.goTo = function( nextView ) {
 		// Listen to onAnimateIn event
 		this.nextView._onAnimateIn.add(this.onViewAnimateIn, this);
 
-		// Animate next view in
-		this.nextView.animateIn();
+		if(this.nextView == this.views.gamersorigin || this.nextView == this.views.trophy || this.nextView == this.views.tesla || this.nextView == this.views.geekart || this.nextView == this.views.newmeta){
+			this.nextView.animateInFromNull();
+		}
+		else{
 
+			// Animate next view in
+			this.nextView.animateIn();
+		}
+		
 		// Dispatch navigation event
 		this._onNavigate.dispatch({
 			from: null,
@@ -104,15 +118,97 @@ ViewController.prototype.goTo = function( nextView ) {
 		return;
 
 	} else {
+		
+		// If nextView is about or showreel we call an other method to animate them out
+		if(this.currentView == this.views.works){
 
-		// Animate out current view
-		this.currentView.animateOut( this.nextView );
+			switch(this.nextView){
+				// About
+				case this.views.about:
+					this.currentView.animateOutToMenu( this.nextView );
+				break;
+				// Showreel
+				case this.views.showreel:
+					this.currentView.animateOutToMenu( this.nextView );
+				break;
+				// Gamersorigin
+				case this.views.gamersorigin:
+					this.currentView.animateOut( this.nextView );
+				break;
+				// 4l trophy
+				case this.views.trophy:
+					this.currentView.animateOut( this.nextView );
+				break;
+				// Tesla
+				case this.views.tesla:
+					this.currentView.animateOut( this.nextView );
+				break;
+				// Tesla
+				case this.views.tesla:
+					this.currentView.animateOut( this.nextView );
+				break;
+				// Geek art
+				case this.views.geekart:
+					this.currentView.animateOut( this.nextView );
+				break;
+				// Newmeta
+				case this.views.newmeta:
+					this.currentView.animateOut( this.nextView );
+				break;
+			}
+
+		}
+		else{
+			// Animate out current view
+			this.currentView.animateOut( this.nextView );
+		}
 
 		// Listen to onAnimateIn event
 		this.nextView._onAnimateIn.add( this.onViewAnimateIn, this );
 
-		// Animate in next view
-		this.nextView.animateIn( this.currentView );
+		// If currentView is about/showreel/works we call an other method to animate view works in
+		if(this.nextView == this.views.works){
+
+			switch(this.currentView){
+				// About
+				case this.views.about:
+					this.nextView.animateInFromMenu( this.currentView );
+				break;
+				// Showreel
+				case this.views.showreel:
+					this.nextView.animateInFromMenu( this.currentView );
+				break;
+				// Gamersorigin
+				case this.views.gamersorigin:
+					this.nextView.animateIn( this.currentView );
+				break;
+				// 4l trophy
+				case this.views.trophy:
+					this.nextView.animateIn( this.currentView );
+				break;
+				// Tesla
+				case this.views.tesla:
+					this.nextView.animateIn( this.currentView );
+				break;
+				// Tesla
+				case this.views.tesla:
+					this.nextView.animateIn( this.currentView );
+				break;
+				// Geek art
+				case this.views.geekart:
+					this.nextView.animateIn( this.currentView );
+				break;
+				// Newmeta
+				case this.views.newmeta:
+					this.nextView.animateIn( this.currentView );
+				break;
+			}
+
+		}
+		else{
+			// Animate in next view
+			this.nextView.animateIn( this.currentView );
+		}
 		
 		// Dispatch navigation event
 		this._onNavigate.dispatch({

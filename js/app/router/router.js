@@ -65,7 +65,7 @@ Router.prototype.createRoutes = function() {
 
 	});
 
-	// About
+	// Works
 	crossroads.addRoute( '/works' , function(){
 
 		self._onNavigate.dispatch({
@@ -73,6 +73,61 @@ Router.prototype.createRoutes = function() {
 		});
 
 		console.log( '## Navigate view works' );
+
+	});
+
+	// Gamersorigin
+	crossroads.addRoute( '/gamersorigin' , function(){
+
+		self._onNavigate.dispatch({
+			view: 'gamersorigin'
+		});
+
+		console.log( '## Navigate view gamersorigin' );
+
+	});
+
+	// 4l trophy
+	crossroads.addRoute( '/4ltrophy' , function(){
+
+		self._onNavigate.dispatch({
+			view: 'trophy'
+		});
+
+		console.log( '## Navigate view 4l trophy' );
+
+	});
+
+	// Tesla
+	crossroads.addRoute( '/tesla' , function(){
+
+		self._onNavigate.dispatch({
+			view: 'tesla'
+		});
+
+		console.log( '## Navigate view tesla' );
+
+	});
+
+	// Geek-art
+	crossroads.addRoute( '/geekart' , function(){
+
+		self._onNavigate.dispatch({
+			view: 'geekart'
+		});
+
+		console.log( '## Navigate view geek-art' );
+
+	});
+
+	// Newmeta
+	crossroads.addRoute( '/newmeta' , function(){
+
+		self._onNavigate.dispatch({
+			view: 'newmeta'
+		});
+
+		console.log( '## Navigate view newmeta' );
 
 	});
 

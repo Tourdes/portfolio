@@ -1,8 +1,12 @@
 var Showreel = function(){
 
 	this.id = 'showreel';
-	this.menuId = $('[showreel-menu]');
 	this.mainContainer = $('main');
+
+	this.menuItems = $( ".links" );
+	this.menuItem = $( "[showreel]" );
+	this.borderMenuPosition = 'left';
+
 
 	View.apply(this, arguments);
 	
@@ -16,6 +20,7 @@ Showreel.prototype.animateIn = function() {
 	View.prototype.animateIn.call(this);
 
 	this.toggleMenu();
+	this.setBG();
 
 	var self = this;
 
@@ -24,8 +29,6 @@ Showreel.prototype.animateIn = function() {
 	this.domElem.fadeIn(function(){
 		self.onAnimateIn();
 	});
-
-	this.setBG();
 
 };
 
@@ -50,7 +53,5 @@ Showreel.prototype.setBG = function() {
     });
 
 };
-
-
 
 

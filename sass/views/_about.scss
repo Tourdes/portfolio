@@ -2,13 +2,14 @@
 	position: relative;
 
 	.about_container{
+		position: absolute;
+		left: 50%;
+		transform: translateX(-50%) translateY(99%);
 		width: 585px;
-		margin: 0 auto;
 		text-align: center;
 
 		.big_logo{
 			width: 75px;
-			padding-top: 90px;
 			margin-bottom: 25px;
 		}
 		

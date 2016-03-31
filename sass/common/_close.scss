@@ -1,0 +1,53 @@
+.close_container{
+	width: 100%;
+	position: relative;
+
+	.project_close{
+		display: none;
+		z-index: 1001;
+		position: absolute;
+		left: 50%;
+		transform: translateX(-50%);
+		font-family: 'proximanova-bold';
+		font-size: 12px;
+		letter-spacing: 0.2em;
+		text-transform: uppercase;
+		color: #fff;
+
+		.topStroke{
+			margin: 0 auto;
+			display: block;
+			width: 4px;
+			height: 29px;
+			background-color: #C60407;
+			margin-bottom: 8px;
+		}
+
+		.close{
+			cursor: pointer;
+			text-decoration: none;
+			opacity: 0.8;
+			transition: opacity 0.3s ease-out;
+			color: #fff;
+
+			&:hover{
+				opacity: 1;
+				transition: opacity 0.3s ease-out;
+			}
+
+		}
+
+		.bottomStroke{
+			margin: 0 auto;
+			display: block;
+			width: 4px;
+			height: 7px;
+			background-color: #C60407;
+			margin-top: 5px;
+		}
+
+
+	}
+}
+
+	

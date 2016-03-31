@@ -1,0 +1,77 @@
+#trophy{
+	position: relative;
+	width: 100%;
+	height: 100%;
+
+	.logo{
+		position: absolute;
+		width: 31px;
+		top: 23px;
+		left: 32px;
+		cursor: pointer;
+		z-index: 1000;
+		opacity: 0.8;
+		transition: opacity 0.3s ease-out;
+
+		&:hover{
+			opacity: 1;
+			transition: opacity 0.3s ease-out;
+		}
+	}
+
+	.project_color{
+		display: block;
+		position: absolute;
+		width: 8px;
+		height: 100%;
+		background-color: #FA9E0D;
+	}
+
+	.project{
+		z-index: 100;
+		position: absolute;
+		width: 100%;
+		height: 100%;
+
+		.project_title{
+			position: absolute;
+			top: 160px;
+			left: 50%;
+			transform: translateX(-50%);
+
+			.big_title{
+				width: 980px;
+				text-align: center;
+				font-family: 'proximanova-black';
+				font-size: 48px;
+				letter-spacing: 0.02em;
+				text-transform: uppercase;
+				color: #fff;
+			}
+
+			.subtitle{
+				font-family: 'proximanova-regular';
+				font-size: 14px;
+				color: #797879;
+				text-align: center;
+			}
+		}
+
+		.project_description{
+			position: absolute;
+			top: 260px;
+			left: 50%;
+			transform: translateX(-50%);
+			width: 700px;
+			text-align: center;
+			font-family: 'proximanova-regular';
+			font-size: 14px;
+			color: #fff;
+			line-height: 1.5;
+
+			.bold{
+				font-family: 'proximanova-bold';
+			}
+		}
+	}
+}
