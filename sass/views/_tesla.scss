@@ -1,5 +1,5 @@
 #tesla{
-	position: relative;
+	position: absolute;
 	width: 100%;
 	height: 100%;
 
@@ -19,12 +19,13 @@
 		}
 	}
 
-	.project_color{
-		display: block;
+	.project_sidecolor{
+		display: none;
 		position: absolute;
-		width: 8px;
+		width: 6px;
 		height: 100%;
 		background-color: #58B171;
+		z-index: 1000;
 	}
 
 	.project{
@@ -32,8 +33,10 @@
 		position: absolute;
 		width: 100%;
 		height: 100%;
+		overflow-y: scroll;
+		overflow-x: hidden;
 
-		.project_title{
+		.project_title_casestudy{
 			position: absolute;
 			top: 160px;
 			left: 50%;
@@ -71,6 +74,199 @@
 
 			.bold{
 				font-family: 'proximanova-bold';
+			}
+		}
+
+		.project_screenshots{
+			position: absolute;
+			top: 571px;
+			left: 50%;
+			transform: translateX(-50%);
+			display: none;
+			height: 600px;
+			width: 100%;
+
+			.title_wrapper{
+				position: absolute;
+				left: 50%;
+				transform: translateX(-50%);
+				width: 198px;
+
+				.rect_left{
+					width: 29px;
+					height: 4px;
+					background-color: #58B171;
+					display: inline-block;
+					vertical-align: middle;
+					margin-right: 12px;
+				}
+
+				.rect_right{
+					width: 29px;
+					height: 4px;
+					background-color: #58B171;
+					display: inline-block;
+					vertical-align: middle;
+					margin-left: 12px;
+				}
+
+				.title{
+					text-align: center;
+					width: 108px;
+					color: #fff;
+					font-family: 'proximanova-bold';
+					font-size: 12px;
+					letter-spacing: 0.1em;
+					text-transform: uppercase;
+					display: inline-block;
+					vertical-align: middle;
+				}
+			}
+
+			.img_wrapper{
+				margin-top: 25px;
+				height: 770px;
+
+				.bt_next{
+					margin-top: 35px;
+					cursor: url(../assets/img/next.png), pointer;
+					position: absolute;
+				    top: 0;
+				    right: 0;
+				    width: 50%;
+				    height: 470px;
+				    z-index: 1000;
+				    display: block;
+				}
+
+				.bt_prev{
+					margin-top: 35px;
+					cursor: url(../assets/img/prev.png), pointer;
+					position: absolute;
+				    top: 0;
+				    left: 0;
+				    width: 50%;
+				    height: 470px;
+				    z-index: 1000;
+				    display: block;
+				}
+
+
+				.project_img{
+					position: absolute;
+					width: 480px;
+					left: 50%;
+					transform: translateX(-50%) scale(1);
+					display: none;
+
+				}
+
+				.actif_img{
+					transition: all 0.5s ease-out;
+					box-shadow: 0px -5px 8px 0px rgba(0,0,0,0.30), 0px 5px 8px 0px rgba(0,0,0,0.30);
+				}
+
+				.hover_img{
+
+				}
+
+			}
+
+			.nav_wrapper{
+				position: absolute;
+				left: 50%;
+				transform: translateX(-50%);
+				width: 70px;
+
+				.actif{
+					border-bottom: 2px solid #fff;
+					padding-bottom: 5px;
+					font-family: 'proximanova-bold' !important;
+					color: rgba(255,255,255,1) !important;
+					transition: all 0.3s ease-out;
+				}
+
+				.img_number{
+					display: inline-block;
+					padding-left: 2px;
+					padding-right: 2px;
+					margin-right: 16px;
+					font-family: 'proximanova-regular';
+					color: rgba(255,255,255,0.3);
+					font-size: 11px;
+					transition: all 0.3s ease-out;
+					cursor: pointer;
+				}
+
+				.img_number:last-child{
+					margin-right: 0px;
+				}
+			}
+		}
+
+		.project_video{
+			position: absolute;
+			top: 1600px;
+			left: 50%;
+			transform: translateX(-50%);
+			display: none;
+			height: 650px;
+			width: 100%;
+
+			.title_wrapper{
+				position: absolute;
+				left: 50%;
+				transform: translateX(-50%);
+				width: 296px;
+
+				.rect_left{
+					width: 29px;
+					height: 4px;
+					background-color: #58B171;
+					display: inline-block;
+					vertical-align: middle;
+					margin-right: 12px;
+				}
+
+				.rect_right{
+					width: 29px;
+					height: 4px;
+					background-color: #58B171;
+					display: inline-block;
+					vertical-align: middle;
+					margin-left: 12px;
+				}
+
+				.title{
+					text-align: center;
+					width: 206px;
+					color: #fff;
+					font-family: 'proximanova-bold';
+					font-size: 12px;
+					letter-spacing: 0.1em;
+					text-transform: uppercase;
+					display: inline-block;
+					vertical-align: middle;
+				}
+			}
+
+			.video_wrapper{
+				position: absolute;
+				left: 50%;
+				transform: translateX(-50%);
+				margin-top: 40px;
+
+				h3{
+					text-align: center;
+					color: #fff;
+					font-family: 'proximanova-bold';
+					font-size: 12px;
+					margin-bottom: 10px;
+				}
+
+				iframe{
+					box-shadow: 0px -5px 8px 0px rgba(0,0,0,0.20), 0px 5px 8px 0px rgba(0,0,0,0.20);
+				}
 			}
 		}
 	}

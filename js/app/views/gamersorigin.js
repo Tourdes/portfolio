@@ -9,6 +9,12 @@ var Gamersorigin = function(){
 		
 	}
 
+	// Calcul
+	this.windowY = window.innerHeight;
+	this.positionProjectCover = this.windowY * 0.14;
+	this.positionProjectTitle = this.positionProjectCover + 460;
+	this.positionProjectNavigation = this.positionProjectCover + 550;
+
 	View.apply(this, arguments);
 	
 };
@@ -25,9 +31,9 @@ Gamersorigin.prototype.setSelectors = function() {
 	this.headerItem = $( ".header_wrapper" );
 	this.mainContainer = $('main');
 	this.borderMenuPosition = 'middle';
-	this.titleItem = $('.project_title');
+	this.titleItemCasestudy = $('.project_title_casestudy');
 	this.projectDescription = $('.project_description');
-	this.projectColor = $('.project_color');
+	this.projectColor = $('.project_sidecolor');
 	this.closeItem = $('.project_close');
 	this.closeTopStroke = $('.project_close .topStroke');
 	this.closeBottomStroke = $('.project_close .bottomStroke');
@@ -37,6 +43,7 @@ Gamersorigin.prototype.setSelectors = function() {
 	this.nextScreen = $('.bt_next');
 	this.prevScreen = $('.bt_prev');
 	this.projectWrapper = $('[wrapper-selector]');
+	this.projectVideo = $('.project_video');
 
 
 };
@@ -121,7 +128,7 @@ Gamersorigin.prototype.unbind = function() {
 	View.prototype.unbind.call(this);
 
 	// Unbind onKeyup
-	$('.project').unbind("scroll");
+	$('[wrapper-selector]').unbind("scroll");
 
 	// Unbind click
 	this.nextScreen.unbind('click');
@@ -189,13 +196,34 @@ Gamersorigin.prototype.animateIn = function() {
 };
 
 Gamersorigin.prototype.animationInVelocity = function() {
-	this.titleItem.velocity({
-		top: [160, "77%"]
+
+	var self = this;
+
+	this.titleItemCasestudy.velocity({
+		top: [self.positionProjectTitle, self.positionProjectTitle]
+	}, {
+		duration: 0,
+		delay: 0,
+		display: "none"
+	});
+
+	this.titleItemCasestudy.velocity({
+		top: [160, self.positionProjectTitle]
 	}, {
 		duration: 2200,
-		delay: 1600,
+		delay: 1900,
 		display: "block",
 		easing: [600, 50]
+	});
+
+	// Description
+	this.projectDescription.velocity({
+		top: [640, 640],
+		opacity: 0
+	}, {
+		duration: 0,
+		delay: 0,
+		display: "none"
 	});
 
 	this.projectDescription.velocity({
@@ -203,17 +231,18 @@ Gamersorigin.prototype.animationInVelocity = function() {
 		opacity: [1,0]
 	}, {
 		duration: 2200,
-		delay: 1760,
+		delay: 2160,
 		display: "block",
 		easing: [600, 50]
 	});
+	
 
 	this.projectColor.velocity({
 		height: ["100%", "0%"]
 	}, {
-		duration: 4000,
+		duration: 2000,
 		display: "block",
-		delay: 1760,
+		delay: 2000,
 		easing: [600, 40]
 	});
 
@@ -231,15 +260,66 @@ Gamersorigin.prototype.animationInVelocity = function() {
 		delay: 0
 	});
 
+	// Close item
+	this.closeItem.velocity({
+		opacity: 0,
+		translateY: ["-50%", "-50%"],
+		translateX: ["-50%", "-50%"]
+	}, {
+		duration: 0,
+		delay: 0,
+		display: "none"
+	});
+
 	this.closeItem.velocity({
 		opacity: 1,
 		translateY: ["0%", "-50%"],
 		translateX: ["-50%", "-50%"]
 	}, {
 		duration: 1000,
-		delay: 2200,
+		delay: 2400,
 		easing: [300, 40],
 		display: "block"
+	});
+
+	// Video
+	this.projectVideo.velocity({
+		top: [1350, 1350],
+		opacity: 0
+	}, {
+		duration: 0,
+		delay: 0,
+		display: "none"
+	});
+
+	this.projectVideo.velocity({
+		top: [1350, 1500],
+		opacity: [1,0]
+	}, {
+		duration: 2000,
+		delay: 2200,
+		display: "block",
+		easing: [600, 50]
+	});
+
+	// Screenshots
+	this.projectScreenshots.velocity({
+		top: [800, 800],
+		opacity: 0
+	}, {
+		duration: 0,
+		delay: 0,
+		display: "none"
+	});
+
+	this.projectScreenshots.velocity({
+		top: [571, 800],
+		opacity: [1,0]
+	}, {
+		duration: 2000,
+		delay: 2200,
+		display: "block",
+		easing: [600, 50]
 	});
 };
 
@@ -268,11 +348,31 @@ Gamersorigin.prototype.animateOut = function() {
 		display: "none"
 	});	
 
-	this.titleItem.velocity({
-		top: [561, 160]
+	this.titleItemCasestudy.velocity({
+		top: [self.positionProjectTitle, 160]
 	}, {
 		duration: 2000,
 		delay: 100,
+		easing: [600, 50]
+	});
+
+	this.projectVideo.velocity({
+		top: [1500, 1350],
+		opacity: [0,1]
+	}, {
+		duration: 1670,
+		delay: 0,
+		display: "none",
+		easing: [600, 50]
+	});
+
+	this.projectScreenshots.velocity({
+		top: [800, 571],
+		opacity: [0,1]
+	}, {
+		duration: 1650,
+		delay: 0,
+		display: "none",
 		easing: [600, 50]
 	});
 
@@ -701,7 +801,7 @@ Gamersorigin.prototype.setBG = function() {
 // Toggle nav screenshots
 Gamersorigin.prototype.toggleNavScreenshots = function(nextScreenshot) {
 
-	this.navNumberActif = $('[img-selector="'+ nextScreenshot +'"');
+	this.navNumberActif = $('[img-selector="'+ nextScreenshot +'"]');
 
 	this.navNumberScreenshots.removeClass('actif');
 	this.navNumberActif.addClass('actif');

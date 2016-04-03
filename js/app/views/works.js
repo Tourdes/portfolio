@@ -15,6 +15,12 @@ var Works = function(){
 
 	}
 
+	// Calcul
+	this.windowY = window.innerHeight;
+	this.positionProjectCover = this.windowY * (14/100);
+	this.positionProjectTitle = this.positionProjectCover + 460;
+	this.positionProjectNavigation = this.positionProjectCover + 550;
+
 	View.apply(this, arguments);
 	
 };
@@ -103,6 +109,14 @@ Works.prototype.animateInFromMenu = function() {
 		}
 	});
 
+	this.titleItem.velocity("finish");
+	this.titleItem.velocity({
+		opacity: 1
+	}, {
+		duration: 1,
+		delay: 0,
+		display: "block"
+	});
 	
 
 };
@@ -147,6 +161,24 @@ Works.prototype.animationInVelocity = function() {
 		delay: 1850,
 		easing: [300, 40],
 		display: "block"
+	});
+
+	this.titleItem.velocity("finish");
+	this.titleItem.velocity({
+		opacity: 1
+	}, {
+		duration: 0,
+		delay: 0,
+		display: "none"
+	});
+
+	this.titleItem.velocity({
+		opacity: 1
+	}, {
+		duration: 0,
+		delay: 1600,
+		display: "block",
+		easing: [300, 30]
 	});
 
 	this.coverItem.velocity("finish");
@@ -215,11 +247,20 @@ Works.prototype.animateOut = function() {
 	});
 
 	this.loadingBar.velocity({
+		width: [0,0]
+	},{ 
+		duration: 0,
+		delay: 0,
+		display: "none"
+	});
+
+	this.loadingBar.velocity({
 		width: [806, 0],
 		left: ["18.5%","18.5%"],
 		backgroundColor: [this.currentWork.projectColor, this.currentWork.projectColor]
 	}, {
 		duration: 2000,
+		display: "block",
 		delay: 0,
 		easing: [200, 40],
 		complete: function(){
@@ -267,6 +308,7 @@ Works.prototype.initWorks = function(){
 	this.setBG();
 	this.setWorkCover();
 	this.setWorkColor();
+	this.setPositionsViewports();
 
 	this.workToShow = $( "." + this.currentWork.projectName );
 	this.workToShow.velocity({ opacity: 1 }, { display: "block", duration: 1000});
@@ -478,6 +520,23 @@ Works.prototype.setBG = function() {
       "background-position": "50% 50%"
     });
 
+};
+
+// Set positions according to height of the viewports
+Works.prototype.setPositionsViewports = function() {
+
+	// Add positions
+	this.coverItem.css({
+		"top" : this.positionProjectCover
+	});
+
+	this.titleItem.css({
+		"top" : this.positionProjectTitle
+	});
+
+	this.nav.css({
+		"top" : this.positionProjectNavigation
+	});
 };
 
 

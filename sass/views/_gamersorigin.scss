@@ -19,8 +19,8 @@
 		}
 	}
 
-	.project_color{
-		display: block;
+	.project_sidecolor{
+		display: none;
 		position: absolute;
 		width: 6px;
 		height: 100%;
@@ -35,10 +35,8 @@
 		height: 100%;
 		overflow-y: scroll;
 		overflow-x: hidden;
-		background: url('../assets/img/bg_gamersorigin.png');
-		background-size: cover;
 
-		.project_title{
+		.project_title_casestudy{
 			position: absolute;
 			top: 160px;
 			left: 50%;
@@ -84,7 +82,7 @@
 			top: 571px;
 			left: 50%;
 			transform: translateX(-50%);
-			display: block;
+			display: none;
 			height: 600px;
 			width: 100%;
 
@@ -211,8 +209,8 @@
 			top: 1350px;
 			left: 50%;
 			transform: translateX(-50%);
-			display: block;
-			height: 500px;
+			display: none;
+			height: 650px;
 			width: 100%;
 
 			.title_wrapper{
@@ -257,7 +255,6 @@
 				left: 50%;
 				transform: translateX(-50%);
 				margin-top: 40px;
-				margin-bottom: 150px;
 
 				h3{
 					text-align: center;
